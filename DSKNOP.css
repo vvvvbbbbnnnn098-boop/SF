@@ -1,0 +1,89 @@
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    border: 2px solid var(--secondary-color);
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Обрезаем края если фото большое */
+}
+
+.logo-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Масштабируем фото чтобы заполнить область */
+    border-radius: 50%; /* Делаем круглым - популярно для фото профиля */
+    border: 2px solid var(--secondary-color); /* Добавляем рамку цвета семьи */
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); /* Легкая тень */
+}
+
+/* Альтернативный стиль - квадратная фотография */
+.logo-photo.square {
+    border-radius: 8px; /* Скругленные углы вместо круга */
+}
+
+/* Альтернативный стиль - фотография в форме щита */
+.logo-photo.shield {
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%; /* Форма щита */
+}
+
+/* Эффект при наведении */
+.logo-photo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+/* Стили для фотографий участников */
+.member-img {
+    height: 250px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Фото заполняет всю область */
+    transition: transform 0.5s ease;
+}
+
+.member-photo:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+.fallback-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 4rem;
+    display: none; /* Скрываем по умолчанию */
+    z-index: 1;
+}
+
+/* Показываем иконку если фото не загрузилось */
+.member-img:has(.member-photo[src=""]) .fallback-icon,
+.member-img:not(:has(.member-photo[src])) .fallback-icon,
+.member-img .member-photo[onerror] + .fallback-icon {
+    display: block;
+}
