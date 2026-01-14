@@ -1,0 +1,404 @@
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    border: 2px solid var(--secondary-color);
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Обрезаем края если фото большое */
+}
+
+.logo-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Масштабируем фото чтобы заполнить область */
+    border-radius: 50%; /* Делаем круглым - популярно для фото профиля */
+    border: 2px solid var(--secondary-color); /* Добавляем рамку цвета семьи */
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); /* Легкая тень */
+}
+
+/* Альтернативный стиль - квадратная фотография */
+.logo-photo.square {
+    border-radius: 8px; /* Скругленные углы вместо круга */
+}
+
+/* Альтернативный стиль - фотография в форме щита */
+.logo-photo.shield {
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%; /* Форма щита */
+}
+
+/* Эффект при наведении */
+.logo-photo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+/* Стили для фотографий участников */
+.member-img {
+    height: 250px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Фото заполняет всю область */
+    transition: transform 0.5s ease;
+}
+
+.member-photo:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+.fallback-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 4rem;
+    display: none; /* Скрываем по умолчанию */
+    z-index: 1;
+}
+
+/* Показываем иконку если фото не загрузилось */
+.member-img:has(.member-photo[src=""]) .fallback-icon,
+.member-img:not(:has(.member-photo[src])) .fallback-icon,
+.member-img .member-photo[onerror] + .fallback-icon {
+    display: block;
+}
+/* Стили для фотографии в Header */
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    background-color: #2c3e50; /* Фон если фото не загрузится */
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+.logo-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Фото заполняет весь круг */
+    transition: all 0.3s ease;
+}
+
+.logo-photo:hover {
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+/* Альтернативные стили для фотографии */
+
+/* Квадратная фотография с закругленными углами */
+.logo-photo.square {
+    border-radius: 8px;
+}
+
+/* Фотография в форме шестиугольника */
+.logo-photo.hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* Фотография с эффектом виньетки */
+.logo-photo.vignette {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Для темных фото */
+.logo-photo.bright {
+    filter: brightness(1.2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+/* Hero Section с вашей фотографией на фоне */
+.hero {
+    height: 100vh;
+    background: 
+        /* Темный оверлей поверх фото */
+        linear-gradient(
+            rgba(0, 0, 0, 0.7), 
+            rgba(0, 0, 0, 0.7)
+        ),
+        /* Ваша фотография на фоне */
+        url('sedoy_family2.0.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Эффект параллакса */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Альтернативные варианты оверлея */
+
+/* Более темный оверлей */
+.hero.dark-overlay {
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.8), 
+            rgba(0, 0, 0, 0.9)
+        ),
+        url('sedoy_family2.0.png');
+}
+
+/* Градиентный оверлей */
+.hero.gradient-overlay {
+    background: 
+        linear-gradient(
+            135deg,
+            rgba(231, 76, 60, 0.2),
+            rgba(44, 62, 80, 0.7),
+            rgba(0, 0, 0, 0.9)
+        ),
+        url('sedoy_family2.0.png');
+}
+
+/* Оверлей с цветом семьи */
+.hero.family-overlay {
+    background: 
+        linear-gradient(
+            to right,
+            rgba(44, 62, 80, 0.8),
+            rgba(231, 76, 60, 0.3),
+            rgba(44, 62, 80, 0.8)
+        ),
+        url('sedoy_family2.0.png');
+}
+
+/* Эффект размытия фона */
+.hero.blurred-bg {
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.7), 
+            rgba(0, 0, 0, 0.7)
+        ),
+        url('sedoy_family2.0.png');
+    backdrop-filter: blur(3px);
+}
+
+/* Анимация для фона */
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hero.animated-bg {
+    animation: zoomInOut 20s infinite alternate ease-in-out;
+}
+
+/* Для улучшения читаемости текста на фоне */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--light-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero h2 span {
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #eee;
+}
+
+/* Эффект параллакса для текста */
+.hero-content {
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+
+.hero:hover .hero-content {
+    transform: translateY(-10px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Отключаем фиксированный фон на мобильных */
+        height: 90vh;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
+/* Privacy Policy Section - НОВЫЙ РАЗДЕЛ */
+.privacy-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privacy-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privacy-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.privacy-section h3 {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.privacy-section h3 i {
+    color: var(--secondary-color);
+}
+
+.privacy-section p {
+    color: #ccc;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.privacy-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.privacy-list li {
+    color: #ccc;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 30px;
+    line-height: 1.6;
+}
+
+.privacy-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.privacy-warning {
+    background: rgba(231, 76, 60, 0.1);
+    border-left: 4px solid var(--secondary-color);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.privacy-note {
+    background: rgba(52, 152, 219, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.privacy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.privacy-table th,
+.privacy-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privacy-table th {
+    background: rgba(231, 76, 60, 0.2);
+    color: var(--light-color);
+    font-weight: 600;
+}
+
+.privacy-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.last-updated {
+    color: #888;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
