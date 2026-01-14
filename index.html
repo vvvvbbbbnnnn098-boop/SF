@@ -599,17 +599,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedoy Family - GTA 5 RP</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ... ваш существующий CSS до Members Section ... */
-        
-        /* Members Section с анимациями */
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
+       <title>Sedoy Family - GTA 5 RP</title>
         
         .member-card {
             background-color: rgba(255, 255, 255, 0.05);
@@ -1500,7 +1490,53 @@
         document.addEventListener('keydown', function(e) {
             if (document.getElementById('fullscreenOverlay').classList.contains('active')) {
                 if (e.key === 'ArrowLeft' && currentMemberIndex > 0) {
-                    currentMemberIndex--;
+                    currentMemberIndex--;<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedoy Family - GTA 5 RP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... ваш существующий CSS ... */
+        
+        /* Hero Section с вашей фотографией */
+        .hero {
+            height: 100vh;
+            background: 
+                /* Темный оверлей */
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                /* ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА ВАШУ ФОТОГРАФИЮ */
+                url('ВАША_ФОТОГРАФИЯ.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* ... остальные стили Hero секции ... */
+    </style>
+</head>
+<body>
+    <!-- Hero Section с вашей фотографией на фоне -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Добро пожаловать в <span>Sedoy FAMQ</span></h2>
+            <p>Мы - мощная и сплоченная семья в мире GTA 5 RolePlay. Наша цель - создавать уникальные RP-истории, развивать свой бизнес и контролировать территории в Лос-Сантосе.</p>
+            <div class="button-group">
+                <a href="#join" class="cta-button">Вступить в семью</a>
+                <a href="https://discord.gg/7wsK6PGCET" target="_blank" class="cta-button">
+                    Discord сервер
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ... остальной код ... -->
+</body>
+</html>
                     showFullscreenPhoto(currentMemberIndex);
                 } else if (e.key === 'ArrowRight' && currentMemberIndex < members.length - 1) {
                     currentMemberIndex++;
@@ -1685,4 +1721,5 @@
         });
     </script>
 </body>
+
 </html>
